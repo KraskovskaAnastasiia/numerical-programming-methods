@@ -1,0 +1,27 @@
+import sympy as sp 
+from sympy import *
+ import numpy as np 
+import math 
+x = Symbol('x') 
+y = ln(x+1)-sin(x) 
+y1 = y.diff(x) 
+y2 = y1.diff(x) 
+y3 = y2.diff(x) 
+print("The first derivative: y' = ", y1) 
+print("The second derivative: y'' = ", y2) 
+print("The third derivative: y''' = ", y3) 
+x=0 
+f = -cos(x)+(1/(x+1)) 
+f2 = sin(x) - 1/(x + 1)**2 
+f3 = cos(x) + 2/(x + 1)**3 
+print("f(0) = ", f, "f'(0) = ", f2, "f''(0) = ", f3) 
+x = Symbol('x') 
+print("f(x) = f(0) + f'(0)(x-0) + f''(0) ((x-0)^2/2) + f'''(0) ((x-0)^3/6)") 
+fx = 0 + f*(x-0) + f2*(((x-0)**2)/2) + f3*(((x-0)**3)/6) 
+print(fx) 
+p1 = sp.plot(y, (x, -2, 2), title = "Taylor's polinomial", ylabel = "y", label = "y", line_color = "#00e1ff", show = False, legend = True) 
+p2 = sp.plot(fx, (x, -2, 2), label = "f(x)", line_color = "#ff00f7", show = False) 
+p3 = sp.plot(x, (x, -2, 2),label = "x", show = False, line_color = "#ff7b00") 
+p1.append(p2[0])
+ p1.append(p3[0]) 
+p1.show() 
