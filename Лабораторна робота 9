@@ -1,0 +1,52 @@
+import numpy as np 
+import math 
+from math import factorial 
+arrX=[0.101, 0.106, 0.111, 0.116, 0.121, 0.126] 
+arrY=[1.2618, 1.2764, 1.2912, 1.3061, 1.3213, 1.3366] 
+h = arrX[1]-arrX[0] 
+x = 0.112 
+q = (x - arrX[0])/h 
+ 
+ 
+print ("Array of X: ", arrX) 
+print ("Array of Y: ", arrY) 
+print ("Your h = ", h) 
+print ("Your q = ", q) 
+ 
+dy = [] 
+for i in range(len(arrY)): 
+    dy.append(arrY[i] - arrY[i-1]) 
+dy.pop (0) 
+print("\nMassive of delta y: ", dy) 
+ 
+d2y = [] 
+for i in range(len(dy)): 
+    d2y.append(dy[i] - dy[i-1]) 
+d2y.pop (0) 
+print("\nMassive of the second delta y: ", d2y) 
+ 
+d3y = [] 
+for i in range(len(d2y)): 
+    d3y.append(d2y[i] - d2y[i-1]) 
+d3y.pop (0) 
+print("\nMassive of the third delta y: ", d3y) 
+ 
+d4y = [] 
+for i in range(len(d3y)): 
+    d4y.append(d3y[i] - d3y[i-1]) 
+d4y.pop (0) 
+print("\nMassive of the fourth delta y: ", d4y) 
+ 
+d5y = [] 
+for i in range(len(d4y)): 
+    d5y.append(d4y[i] - d4y[i-1]) 
+d5y.pop (0) 
+print("\nMassive of the fifth delta y: ", d5y) 
+ 
+print ("The first interpolation formule of Newthon: ") 
+N1 = arrY[0]+q*dy[0]+((q*(q-1))/factorial(2)*d2y[0])+((q*(q-1)*(q-2))/factorial(3)*d3y[0])+((q*(q-1)*(q-2)*(q-3))/factorial(4)*d4y[0]) 
+print (N1) 
+ 
+print ("The first interpolation formule of Newthon: ") 
+N2 = arrY[5]+q*dy[4]+((q*(q+1))/factorial(2)*d2y[3])+((q*(q+1)*(q+2))/factorial(3)*d3y[2])+((q*(q+1)*(q+2)*(q+3))/factorial(4)*d4y[1]) 
+print (N2)
