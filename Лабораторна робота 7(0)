@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy import *
+
+#Example #4
+t = linspace(0, 3, 51) 
+y1 = 5*sin(10*t)*sin(3*t)/(t**2) 
+fig, ax = plt.subplots()
+ax.plot(t, y1)
+ax.grid()
+plt.plot(t, y1, 'g-')
+plt.xlabel('t') 
+plt.ylabel('y') 
+plt.title('Variant12') 
+plt.legend(['5*sin(10*t)*sin(3*t)/(t**2)'], # список легенди  
+           loc='upper left') # положення легенди 
+plt.show()
